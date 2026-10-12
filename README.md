@@ -5,11 +5,10 @@ Ruby console dotfiles — `.irbrc`, `.pryrc`, `.gemrc` — kept in version contr
 ## Install
 
 ```sh
-./install.sh        # symlinks the dotfiles into ~ (backs up any existing file)
-./install_gems.sh   # optional: installs the gems the dotfiles use
+./install.sh   # symlinks the dotfiles into ~ (backs up any existing file), then runs install_gems.sh
 ```
 
-Re-runnable. The gems (`wirble`, `awesome_print`, `pry`…) are optional — the dotfiles degrade gracefully if they're missing.
+Re-runnable. `install_gems.sh` (`wirble`, `awesome_print`, `pry`…) runs only if `gem` is on the PATH, and a failure there doesn't fail the install — the dotfiles degrade gracefully without the gems.
 
 ## What's here
 
