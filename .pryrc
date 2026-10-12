@@ -90,9 +90,15 @@ if defined?(Rails)
     require "rails/console/helpers"
     extend Rails::ConsoleMethods
     puts "Rails Console Helpers loaded"
-  rescue LoadError => e
-    require "console_app"
-    require "console_with_helpers"
+  rescue LoadError
+    # Older Rails names these files differently; newer Rails (and pry-rails)
+    # already provide the helpers, so a second miss isn't an error.
+    begin
+      require "console_app"
+      require "console_with_helpers"
+    rescue LoadError
+      nil
+    end
   end
 end
 
