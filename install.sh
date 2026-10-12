@@ -11,3 +11,9 @@ for f in .irbrc .pryrc .gemrc; do
   ln -sf "$dir/$f" "$target"
   echo "linked $target -> $dir/$f"
 done
+
+# Gems the dotfiles use. Skipped when there's no Ruby, and a failed gem doesn't
+# fail the install (the dotfiles degrade gracefully without them).
+if command -v gem >/dev/null 2>&1; then
+  bash "$dir/install_gems.sh" || echo "note: gem install failed; the dotfiles work without the gems"
+fi
