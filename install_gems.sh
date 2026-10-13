@@ -6,5 +6,4 @@ gem install --user-install wirble
 gem install --user-install pry
 gem install --user-install pry-doc
 gem install --user-install awesome_print
-gem install --user-install mdless
 # gem install --user-install pry-rails pry-byebug pry-rescue  # for Rails projects
