@@ -1,5 +1,7 @@
 # setup-ruby
 
+<img src="public/icon.png" alt="" width="96">
+
 Ruby console dotfiles — `.irbrc`, `.pryrc`, `.gemrc` — kept in version control and symlinked into `$HOME`.
 
 ## Install
