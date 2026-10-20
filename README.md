@@ -5,27 +5,17 @@
 <p align="center"><b>Ruby console dotfiles (.irbrc, .pryrc, .gemrc), symlinked into $HOME from version control.</b></p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/macOS-27-000000?style=for-the-badge&logo=apple&logoColor=white" alt="macOS 27" />
-  <img src="https://img.shields.io/badge/Linux-Ubuntu%2024.04-E95420?style=for-the-badge&logo=ubuntu&logoColor=white" alt="Linux Ubuntu 24.04" />
-  <img src="https://img.shields.io/badge/Shell-POSIX%20sh-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white" alt="Shell POSIX sh" />
+  <img src="https://img.shields.io/badge/macOS-27%20%C2%B7%20daily%20use-000000?style=for-the-badge&logo=apple&logoColor=white" alt="macOS 27 · daily use" />
   <img src="https://img.shields.io/badge/Ruby-irb%20%C2%B7%20pry-CC342D?style=for-the-badge&logo=ruby&logoColor=white" alt="Ruby irb · pry" />
+  <img src="https://img.shields.io/badge/Shell-POSIX%20sh-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white" alt="Shell POSIX sh" />
 </p>
 
 <p align="center">
-  <a href="https://github.com/lawrence-berry/setup-ruby/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/lawrence-berry/setup-ruby/ci.yml?branch=main&style=for-the-badge&logo=githubactions&logoColor=white&label=CI" alt="CI status" /></a>
+  <a href="https://github.com/lawrence-berry/setup-ruby/actions/workflows/macos.yml"><img src="https://img.shields.io/github/actions/workflow/status/lawrence-berry/setup-ruby/macos.yml?branch=main&style=for-the-badge&logo=apple&logoColor=white&label=macOS%2015" alt="macOS 15 CI status" /></a>
+  <a href="https://github.com/lawrence-berry/setup-ruby/actions/workflows/linux.yml"><img src="https://img.shields.io/github/actions/workflow/status/lawrence-berry/setup-ruby/linux.yml?branch=main&style=for-the-badge&logo=ubuntu&logoColor=white&label=Ubuntu%2024.04" alt="Ubuntu 24.04 CI status" /></a>
 </p>
 
 Ruby console dotfiles — `.irbrc`, `.pryrc`, `.gemrc` — kept in version control and symlinked into `$HOME`.
-
-## Supported versions
-
-| Component | Version | Status |
-|---|---|---|
-| macOS | 27 (Apple Silicon) | Used daily |
-| macOS | 15 | CI |
-| Ubuntu | 24.04 | CI |
-| Ruby | whichever `gem` is on the `PATH` (CI uses the runner's) | Gems are optional; the dotfiles degrade without them |
-| Shell | `/bin/sh` (POSIX); `install_gems.sh` needs bash | ShellCheck in CI |
 
 ## Install
 
