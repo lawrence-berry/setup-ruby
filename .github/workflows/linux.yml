@@ -1,0 +1,35 @@
+name: Linux
+
+on:
+  pull_request:
+    paths-ignore: [ "**.md" ]
+  push:
+    branches: [main]
+    paths-ignore: [ "**.md" ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  shellcheck:
+    name: ShellCheck
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - run: shellcheck -S warning -e SC2148 *.sh
+
+  install:
+    name: Install (ubuntu-24.04)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - name: Run install.sh twice in a scratch HOME
+        run: |
+          export HOME="$(mktemp -d)" SHELL=/bin/bash
+          ./install.sh
+          ./install.sh
+          for f in .irbrc .pryrc .gemrc; do [ "$(readlink "$HOME/$f")" = "$PWD/$f" ]; done

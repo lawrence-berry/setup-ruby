@@ -1,0 +1,28 @@
+name: macOS
+
+on:
+  pull_request:
+    paths-ignore: [ "**.md" ]
+  push:
+    branches: [main]
+    paths-ignore: [ "**.md" ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  install:
+    name: Install (macos-15)
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v7
+      - name: Run install.sh twice in a scratch HOME
+        run: |
+          export HOME="$(mktemp -d)" SHELL=/bin/bash
+          ./install.sh
+          ./install.sh
+          for f in .irbrc .pryrc .gemrc; do [ "$(readlink "$HOME/$f")" = "$PWD/$f" ]; done
